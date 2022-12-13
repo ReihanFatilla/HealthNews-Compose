@@ -7,5 +7,5 @@ data class News(
     val author: String,
     val date: String,
     val desc: String,
-    val photo: Int
+    val photo: String
 )
