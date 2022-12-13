@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.reift.healthnews_compose">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -15,6 +15,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HealthNewsCompose"
         tools:targetApi="31">
+        <activity
+            android:name=".DetailActivity"
+            android:exported="false"
+            android:label="@string/title_activity_detail"
+            android:theme="@style/Theme.HealthNewsCompose" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
