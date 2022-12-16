@@ -1,5 +1,6 @@
 package com.reift.healthnews_compose.presentation.detail
 
+import android.app.Activity
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
@@ -12,7 +13,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -27,9 +27,9 @@ import com.reift.healthnews_compose.presentation.home.ui.theme.HealthNewsCompose
 
 
 @Composable
-fun DetailScreen(news: News, modifier: Modifier) {
+fun DetailScreen(news: News, modifier: Modifier, onBackClicked: () -> Unit) {
     Scaffold(
-        topBar = { DetailTopBar() },
+        topBar = { DetailTopBar(onBackClicked) },
         modifier = modifier
     ) {
         DetailContent(news)
@@ -37,14 +37,14 @@ fun DetailScreen(news: News, modifier: Modifier) {
 }
 
 @Composable
-fun DetailTopBar() {
+fun DetailTopBar(onBackClicked: () -> Unit) {
     TopAppBar(
         modifier = Modifier.fillMaxWidth(),
         backgroundColor = colorResource(id = R.color.primary_color),
         title = { Text(text = "News Detail", color = Color.White) },
         navigationIcon = {
             IconButton(onClick = {
-
+                onBackClicked()
             }) {
                 Icon(
                     imageVector = Icons.Default.ArrowBack,
@@ -116,6 +116,8 @@ fun DetailContent(news: News) {
 @Preview(showBackground = true)
 fun DetailScreenPreview() {
     HealthNewsComposeTheme {
-        DetailScreen(DataDummy.listNews[0], Modifier.fillMaxSize())
+        DetailScreen(DataDummy.listNews[0], Modifier.fillMaxSize()){
+
+        }
     }
 }

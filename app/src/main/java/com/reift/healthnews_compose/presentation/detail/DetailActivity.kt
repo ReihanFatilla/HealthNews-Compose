@@ -31,7 +31,9 @@ class DetailActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    DetailScreen(news ,Modifier.fillMaxSize())
+                    DetailScreen(news ,Modifier.fillMaxSize()){
+                        finish()
+                    }
                 }
             }
         }
