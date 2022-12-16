@@ -12,8 +12,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.reift.healthnews_compose.constant.Extra
 import com.reift.healthnews_compose.presentation.detail.ui.theme.HealthNewsComposeTheme
-import com.reift.healthnews_compose.presentation.home.ui.data.DataDummy
-import com.reift.healthnews_compose.presentation.home.ui.data.News
+import com.reift.healthnews_compose.data.DataDummy
+import com.reift.healthnews_compose.data.News
 
 class DetailActivity : ComponentActivity() {
 

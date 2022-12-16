@@ -27,8 +27,8 @@ import com.reift.healthnews_compose.R
 import com.reift.healthnews_compose.constant.Extra
 import com.reift.healthnews_compose.presentation.about.AboutActivity
 import com.reift.healthnews_compose.presentation.detail.DetailActivity
-import com.reift.healthnews_compose.presentation.home.ui.data.DataDummy
-import com.reift.healthnews_compose.presentation.home.ui.data.News
+import com.reift.healthnews_compose.data.DataDummy
+import com.reift.healthnews_compose.data.News
 import com.reift.healthnews_compose.presentation.home.ui.theme.HealthNewsComposeTheme
 
 
@@ -54,8 +54,8 @@ fun MainScreen(modifier: Modifier, context: Context) {
 
     ) {
         LazyColumn(
-            modifier = Modifier.padding(28.dp),
-            verticalArrangement = Arrangement.spacedBy(12.dp)
+            contentPadding = PaddingValues(28.dp),
+            verticalArrangement = Arrangement.spacedBy(6.dp)
         ) {
             items(DataDummy.listNews) { news ->
                 RowItemNews(news = news) {

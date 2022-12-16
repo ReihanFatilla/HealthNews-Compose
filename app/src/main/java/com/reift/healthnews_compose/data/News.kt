@@ -1,4 +1,4 @@
-package com.reift.healthnews_compose.presentation.home.ui.data
+package com.reift.healthnews_compose.data
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

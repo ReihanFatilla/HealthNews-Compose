@@ -21,8 +21,8 @@ import coil.ImageLoader
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.reift.healthnews_compose.R
-import com.reift.healthnews_compose.presentation.home.ui.data.DataDummy
-import com.reift.healthnews_compose.presentation.home.ui.data.News
+import com.reift.healthnews_compose.data.DataDummy
+import com.reift.healthnews_compose.data.News
 import com.reift.healthnews_compose.presentation.home.ui.theme.HealthNewsComposeTheme
 
 
