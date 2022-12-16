@@ -1,11 +1,13 @@
 package com.reift.healthnews_compose.presentation.detail
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
@@ -17,6 +19,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.ImageLoader
 import coil.compose.AsyncImage
+import coil.request.ImageRequest
 import com.reift.healthnews_compose.R
 import com.reift.healthnews_compose.presentation.home.ui.data.DataDummy
 import com.reift.healthnews_compose.presentation.home.ui.data.News
@@ -27,6 +30,7 @@ import com.reift.healthnews_compose.presentation.home.ui.theme.HealthNewsCompose
 fun DetailScreen(news: News, modifier: Modifier) {
     Scaffold(
         topBar = { DetailTopBar() },
+        modifier = modifier
     ) {
         DetailContent(news)
     }
@@ -39,7 +43,9 @@ fun DetailTopBar() {
         backgroundColor = colorResource(id = R.color.primary_color),
         title = { Text(text = "News Detail", color = Color.White) },
         navigationIcon = {
-            IconButton(onClick = {}) {
+            IconButton(onClick = {
+
+            }) {
                 Icon(
                     imageVector = Icons.Default.ArrowBack,
                     contentDescription = "back_button",
@@ -64,7 +70,7 @@ fun DetailContent(news: News) {
             fontWeight = FontWeight.SemiBold,
             fontSize = 18.sp
         )
-        Spacer(modifier = Modifier.height(24.dp))
+        Spacer(modifier = Modifier.height(16.dp))
         Row(
             horizontalArrangement = Arrangement.SpaceBetween,
             modifier = Modifier.fillMaxWidth()
@@ -82,17 +88,21 @@ fun DetailContent(news: News) {
                 fontSize = 14.sp
             )
         }
-        Spacer(modifier = Modifier.height(24.dp))
+        Spacer(modifier = Modifier.height(16.dp))
         AsyncImage(
-            model = news.photo,
+            model = ImageRequest.Builder(LocalContext.current)
+                .data(news.photo)
+                .crossfade(true)
+                .build(),
             imageLoader = ImageLoader(LocalContext.current),
             contentDescription = "news_photo",
-            contentScale = ContentScale.Fit,
+            contentScale = ContentScale.Crop,
             modifier = Modifier
                 .fillMaxWidth()
                 .height(200.dp)
+                .clip(RoundedCornerShape(15.dp))
         )
-        Spacer(modifier = Modifier.height(24.dp))
+        Spacer(modifier = Modifier.height(16.dp))
         Text(
             text = news.desc,
             color = Color.Black,

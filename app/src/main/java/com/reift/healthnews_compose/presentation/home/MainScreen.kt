@@ -1,5 +1,7 @@
 package com.reift.healthnews_compose.presentation.home
 
+import android.content.Context
+import android.content.Intent
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -14,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -21,13 +24,15 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.reift.healthnews_compose.R
+import com.reift.healthnews_compose.constant.Extra
+import com.reift.healthnews_compose.presentation.detail.DetailActivity
 import com.reift.healthnews_compose.presentation.home.ui.data.DataDummy
 import com.reift.healthnews_compose.presentation.home.ui.data.News
 import com.reift.healthnews_compose.presentation.home.ui.theme.HealthNewsComposeTheme
 
 
 @Composable
-fun MainScreen(modifier: Modifier){
+fun MainScreen(modifier: Modifier, context: Context){
     Scaffold(
         modifier = modifier,
         topBar = {
@@ -52,14 +57,19 @@ fun MainScreen(modifier: Modifier){
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ){
             items(DataDummy.listNews){ news ->
-                RowItemNews(news = news)
+                RowItemNews(news = news){
+                    context.startActivity(
+                        Intent(context, DetailActivity::class.java)
+                            .putExtra(Extra.NEWS_DETAIL, news)
+                    )
+                }
             }
         }
     }
 }
 
 @Composable
-fun RowItemNews(news: News) {
+fun RowItemNews(news: News, onNewsClicked: (News) -> Unit) {
     Card(
         shape = RoundedCornerShape(15.dp),
         backgroundColor = Color.White,
@@ -67,7 +77,9 @@ fun RowItemNews(news: News) {
         modifier = Modifier
             .fillMaxWidth()
             .height(100.dp)
-            .clickable(true, onClick = {})
+            .clickable(true, onClick = {
+                onNewsClicked(news)
+            })
     ) {
         ItemNewsContent(news = news)
     }
@@ -117,6 +129,6 @@ fun ItemNewsContent(news: News){
 @Composable
 fun HealthNewsAppPreview() {
     HealthNewsComposeTheme {
-        MainScreen(Modifier.fillMaxSize())
+        MainScreen(Modifier.fillMaxSize(), LocalContext.current)
     }
 }

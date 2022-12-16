@@ -10,7 +10,9 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.reift.healthnews_compose.constant.Extra
 import com.reift.healthnews_compose.presentation.detail.ui.theme.HealthNewsComposeTheme
+import com.reift.healthnews_compose.presentation.home.ui.data.DataDummy
 import com.reift.healthnews_compose.presentation.home.ui.data.News
 
 class DetailActivity : ComponentActivity() {
@@ -19,6 +21,9 @@ class DetailActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        news = intent.getParcelableExtra<News>(Extra.NEWS_DETAIL) ?: DataDummy.listNews[0]
+
         setContent {
             HealthNewsComposeTheme {
                 // A surface container using the 'background' color from the theme
