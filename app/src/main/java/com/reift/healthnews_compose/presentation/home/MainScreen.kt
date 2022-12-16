@@ -25,6 +25,7 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.reift.healthnews_compose.R
 import com.reift.healthnews_compose.constant.Extra
+import com.reift.healthnews_compose.presentation.about.AboutActivity
 import com.reift.healthnews_compose.presentation.detail.DetailActivity
 import com.reift.healthnews_compose.presentation.home.ui.data.DataDummy
 import com.reift.healthnews_compose.presentation.home.ui.data.News
@@ -32,7 +33,7 @@ import com.reift.healthnews_compose.presentation.home.ui.theme.HealthNewsCompose
 
 
 @Composable
-fun MainScreen(modifier: Modifier, context: Context){
+fun MainScreen(modifier: Modifier, context: Context) {
     Scaffold(
         modifier = modifier,
         topBar = {
@@ -44,7 +45,7 @@ fun MainScreen(modifier: Modifier, context: Context){
         },
         floatingActionButton = {
             FloatingActionButton(
-                onClick = { /*TODO*/ },
+                onClick = { context.startActivity(Intent(context, AboutActivity::class.java)) },
                 backgroundColor = colorResource(id = R.color.primary_color)
             ) {
                 Icon(Icons.Filled.Person, "about_page", tint = Color.White)
@@ -55,9 +56,9 @@ fun MainScreen(modifier: Modifier, context: Context){
         LazyColumn(
             modifier = Modifier.padding(28.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp)
-        ){
-            items(DataDummy.listNews){ news ->
-                RowItemNews(news = news){
+        ) {
+            items(DataDummy.listNews) { news ->
+                RowItemNews(news = news) {
                     context.startActivity(
                         Intent(context, DetailActivity::class.java)
                             .putExtra(Extra.NEWS_DETAIL, news)
@@ -86,7 +87,7 @@ fun RowItemNews(news: News, onNewsClicked: (News) -> Unit) {
 }
 
 @Composable
-fun ItemNewsContent(news: News){
+fun ItemNewsContent(news: News) {
     Row {
         AsyncImage(
             model = news.photo,

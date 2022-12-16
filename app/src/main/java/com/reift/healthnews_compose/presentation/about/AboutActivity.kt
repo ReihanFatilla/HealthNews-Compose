@@ -22,7 +22,9 @@ class AboutActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    AboutScreen(Modifier.fillMaxSize())
+                    AboutScreen(Modifier.fillMaxSize()){
+                        finish()
+                    }
                 }
             }
         }
