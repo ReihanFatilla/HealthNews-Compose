@@ -1,4 +1,4 @@
-package com.reift.healthnews_compose.ui.data
+package com.reift.healthnews_compose.presentation.home.ui.data
 
 import com.reift.healthnews_compose.R
 

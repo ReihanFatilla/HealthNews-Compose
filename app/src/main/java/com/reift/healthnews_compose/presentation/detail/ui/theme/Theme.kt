@@ -1,4 +1,4 @@
-package com.reift.healthnews_compose.ui.theme
+package com.reift.healthnews_compose.presentation.detail.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme

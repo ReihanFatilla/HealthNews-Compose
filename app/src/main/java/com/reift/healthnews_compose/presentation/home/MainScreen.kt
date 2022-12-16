@@ -1,4 +1,4 @@
-package com.reift.healthnews_compose
+package com.reift.healthnews_compose.presentation.home
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -20,12 +20,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
-import com.reift.healthnews_compose.ui.data.DataDummy
-import com.reift.healthnews_compose.ui.data.News
-import com.reift.healthnews_compose.ui.theme.HealthNewsComposeTheme
+import com.reift.healthnews_compose.R
+import com.reift.healthnews_compose.presentation.home.ui.data.DataDummy
+import com.reift.healthnews_compose.presentation.home.ui.data.News
+import com.reift.healthnews_compose.presentation.home.ui.theme.HealthNewsComposeTheme
+
 
 @Composable
-fun HealthNewsApp(modifier: Modifier) {
+fun MainScreen(modifier: Modifier){
     Scaffold(
         modifier = modifier,
         topBar = {
@@ -115,6 +117,6 @@ fun ItemNewsContent(news: News){
 @Composable
 fun HealthNewsAppPreview() {
     HealthNewsComposeTheme {
-        HealthNewsApp(Modifier.fillMaxSize())
+        MainScreen(Modifier.fillMaxSize())
     }
 }

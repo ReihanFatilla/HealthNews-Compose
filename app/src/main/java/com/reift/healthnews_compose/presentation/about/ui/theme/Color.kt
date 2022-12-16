@@ -1,4 +1,4 @@
-package com.reift.healthnews_compose.ui.theme
+package com.reift.healthnews_compose.presentation.about.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

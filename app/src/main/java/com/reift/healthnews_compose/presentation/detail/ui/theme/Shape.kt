@@ -1,4 +1,4 @@
-package com.reift.healthnews_compose.ui.theme
+package com.reift.healthnews_compose.presentation.detail.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes
