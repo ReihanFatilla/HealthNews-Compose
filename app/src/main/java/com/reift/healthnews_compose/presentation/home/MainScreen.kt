@@ -25,10 +25,10 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.reift.healthnews_compose.R
 import com.reift.healthnews_compose.constant.Extra
-import com.reift.healthnews_compose.presentation.about.AboutActivity
-import com.reift.healthnews_compose.presentation.detail.DetailActivity
 import com.reift.healthnews_compose.data.DataDummy
 import com.reift.healthnews_compose.data.News
+import com.reift.healthnews_compose.presentation.about.AboutActivity
+import com.reift.healthnews_compose.presentation.detail.DetailActivity
 import com.reift.healthnews_compose.presentation.home.ui.theme.HealthNewsComposeTheme
 
 

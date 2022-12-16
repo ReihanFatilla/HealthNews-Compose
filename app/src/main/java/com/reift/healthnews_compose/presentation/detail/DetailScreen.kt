@@ -1,6 +1,5 @@
 package com.reift.healthnews_compose.presentation.detail
 
-import android.app.Activity
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*

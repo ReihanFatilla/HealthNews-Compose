@@ -1,7 +1,5 @@
 package com.reift.healthnews_compose.data
 
-import com.reift.healthnews_compose.R
-
 object DataDummy {
 
     private val titleNews = listOf(
