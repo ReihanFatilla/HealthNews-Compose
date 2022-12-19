@@ -1,7 +1,10 @@
 package com.reift.healthnews_compose.presentation.detail
 
+import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
@@ -61,8 +64,10 @@ fun DetailContent(news: News) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(all = 28.dp)
+            .padding(horizontal = 28.dp)
+            .verticalScroll(rememberScrollState())
     ) {
+        Spacer(modifier = Modifier.height(28.dp))
         Text(
             text = news.title,
             color = Color.Black,
@@ -108,6 +113,7 @@ fun DetailContent(news: News) {
             fontWeight = FontWeight.Normal,
             fontSize = 12.sp
         )
+        Spacer(modifier = Modifier.height(28.dp))
     }
 }
 
