@@ -1,6 +1,5 @@
 package com.reift.healthnews_compose.presentation.detail
 
-import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
